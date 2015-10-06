@@ -6,8 +6,10 @@ var router = express.Router();
 
 // User routes
 var userController = require('../controllers/userController');
-router.get('/user', authController.verify, authController.admin, userController.listUsers);
-router.get('/user/:id', userController.getUser);
+//router.get('/user', authController.verify, authController.admin, userController.list);
+router.get('/user', userController.list);
+router.get('/user/:id', userController.get);
+router.post('/user', userController.create);
 
 router.post('/authenticate', authController.auth);
 

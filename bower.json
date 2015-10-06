@@ -1,0 +1,17 @@
+{
+  "name": "node-boilerplate",
+  "version": "0.0.0",
+  "homepage": "https://github.com/brunoventura/node-boilerplate",
+  "authors": [
+    "Bruno Ventura <brun0ventur4@gmail.com>"
+  ],
+  "main": "static/index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -4,7 +4,7 @@ var jwt = require('jsonwebtoken');
 var userService = require('../services/userService');
 var errorHandler = require('../modules/errorHandler');
 var helper = require('../modules/helper');
-var config = require('../config');
+var config = require('../../config');
 
 var authController = {
   auth: auth,
@@ -26,7 +26,7 @@ function auth(req, res) {
     .catch(function(err){
       res.json({error: err});
     });
-};
+}
 
 function verify(req, res, next) {
   var token = req.body.token || req.query.token || req.headers['x-access-token'];
@@ -43,7 +43,7 @@ function verify(req, res, next) {
         next();
       }
    });
-};
+}
 
 function admin(req, res, next) {
   var permission = req.tokenDecoded && req.tokenDecoded.admin;
@@ -54,4 +54,4 @@ function admin(req, res, next) {
   }
 
   next();
-};
+}
