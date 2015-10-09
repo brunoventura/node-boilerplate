@@ -1,34 +1,20 @@
 Vue.http.options.root = '/api';
+Vue.http.headers.post['Content-Type'] = 'application/json';
 
-var Login = Vue.extend({
-    template: '<p>Login!</p>'
-})
-
-var Signin = Vue.extend({
-    template: '<p>SignIn!</p>'
-})
-
-var router = new VueRouter({
+window.router = new VueRouter({
   hashbang: false,
   history: true
 });
 
-var app = Vue.extend({
-  el: '#app',
-  ready: function() {
-    this.$http.get('user', function(data, status, request) {
-      console.log(data);
-    });
-  }
-});
+var app = require('../views/index/index.js');
 
 router.map({
     '/login': {
-        component: require('../views/login.vue')
+        component: require('../views/login/login.js')
     },
     '/signin': {
-        component: require('../views/signin.vue')
+        component: require('../views/signin/signin.js')
     }
 })
 
-router.start(app, '#app')
+router.start(app, '#app');

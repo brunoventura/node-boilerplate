@@ -15,6 +15,11 @@ var authController = {
 module.exports = authController;
 
 function auth(req, res) {
+  if(!req.body || !req.body.name || !req.body.password) {
+    helper.responseError(res, errorHandler().badRequest());
+    return;
+  }
+
   userService.auth(req.body.name, req.body.password)
     .then(function(user){
       var token = jwt.sign(user, config.SECRET, {
@@ -24,7 +29,7 @@ function auth(req, res) {
       res.json({success: true, data: {token: token}});
     })
     .catch(function(err){
-      res.json({error: err});
+        helper.responseError(res, err);
     });
 }
 

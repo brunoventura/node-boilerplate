@@ -13,6 +13,11 @@ function errorHandler(model) {
       error.code = code || 404;
       return error;
     },
+    badRequest: function(message, code) {
+      error.message = message || "Request badly formed";
+      error.code = code || 400;
+      return error;
+    },
     serverError: function(message, code) {
       error.message = message || "Internal Server Error";
       error.code = code || 500;
