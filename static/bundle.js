@@ -71,12 +71,13 @@ module.exports = Vue.extend({
     logout: function() {
       auth.logout();
       this.$set('auth', auth.isAuth());
+      router.go('/');
     }
   }
 });
 
 },{"../../modules/auth.js":2,"./template.html":5}],5:[function(require,module,exports){
-module.exports = '<nav>\n  <div class="nav-wrapper container">\n    <a href="#" class="brand-logo">App</a>\n    <ul id="nav-mobile" class="right hide-on-med-and-down">\n      <li v-if="!auth" ><a v-link="/login">Login</a></li>\n      <li v-if="auth" ><a v-link="/" v-on="click: logout">Logout</a></li>\n      <li><a v-link="/signin">Sign In</a></li>\n    </ul>\n  </div>\n</nav>\n<div class="container">\n  <router-view></router-view>\n</div>\n';
+module.exports = '<nav>\n  <div class="nav-wrapper container">\n    <a href="#" class="brand-logo">App</a>\n    <ul id="nav-mobile" class="right hide-on-med-and-down">\n      <li v-if="!auth" ><a v-link="/login">Login</a></li>\n      <li v-if="auth" ><a v-link="/login" v-on="click: logout">Logout</a></li>\n      <li><a v-link="/signin">Sign In</a></li>\n    </ul>\n  </div>\n</nav>\n<div class="container">\n  <router-view></router-view>\n</div>\n';
 },{}],6:[function(require,module,exports){
 var userService = require('../../service/userService.js');
 var auth = require('../../modules/auth.js');

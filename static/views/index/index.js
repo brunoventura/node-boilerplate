@@ -13,6 +13,7 @@ module.exports = Vue.extend({
     logout: function() {
       auth.logout();
       this.$set('auth', auth.isAuth());
+      router.go('/');
     }
   }
 });

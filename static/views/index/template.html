@@ -3,7 +3,7 @@
     <a href="#" class="brand-logo">App</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li v-if="!auth" ><a v-link="/login">Login</a></li>
-      <li v-if="auth" ><a v-link="/" v-on="click: logout">Logout</a></li>
+      <li v-if="auth" ><a v-link="/login" v-on="click: logout">Logout</a></li>
       <li><a v-link="/signin">Sign In</a></li>
     </ul>
   </div>
